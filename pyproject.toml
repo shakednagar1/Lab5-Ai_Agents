@@ -1,3 +1,13 @@
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Pinned here so every machine and CI use the same rules, regardless of user-level config.
+# E/W: style errors, F: pyflakes (unused names, undefined names), B: likely bugs.
+select = ["E", "W", "F", "B"]
+# B905 (zip without strict=) flags fixed-length pairings in the starter code.
+ignore = ["B905"]
